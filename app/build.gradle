@@ -32,6 +32,10 @@ dependencies {
     implementation "com.google.dagger:dagger:$rootProject.dagger2_version"
     kapt "com.google.dagger:dagger-compiler:$rootProject.dagger2_version"
 
+    //Rx
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxjava_android_version"
+
     //Network
 
     //okhttp

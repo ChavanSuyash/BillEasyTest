@@ -1,5 +1,6 @@
 package test.billeasy.com.billeasytest.base
 
+import test.billeasy.com.billeasytest.features.home.HomePresenter
 import test.billeasy.com.billeasytest.injection.component.DaggerPresenterInjector
 import test.billeasy.com.billeasytest.injection.component.PresenterInjector
 import test.billeasy.com.billeasytest.injection.module.ContextModule
@@ -30,6 +31,8 @@ abstract class BasePresenter<out V: BaseView>(protected val view: V) {
     }
 
     private fun inject() {
-
+        when(this){
+            is HomePresenter -> injector.inject(this)
+        }
     }
 }

@@ -3,6 +3,7 @@ package test.billeasy.com.billeasytest.injection.component
 import dagger.BindsInstance
 import dagger.Component
 import test.billeasy.com.billeasytest.base.BaseView
+import test.billeasy.com.billeasytest.features.home.HomePresenter
 import test.billeasy.com.billeasytest.injection.module.ContextModule
 import test.billeasy.com.billeasytest.injection.module.NetworkModule
 import javax.inject.Singleton
@@ -11,8 +12,7 @@ import javax.inject.Singleton
 @Component(modules = [ContextModule::class, NetworkModule::class])
 interface PresenterInjector{
 
-    // TODO: Inject dependencies to presenter
-    fun inject()
+    fun inject(homePresenter: HomePresenter)
 
     @Component.Builder
     @Suppress("unused")
