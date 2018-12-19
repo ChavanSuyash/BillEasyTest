@@ -2,12 +2,9 @@ package test.billeasy.com.billeasytest.base
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
 
-/**
- * abstract BaseActivity class will instantiate the presenter of inheriting classes and provides BaseView context
- */
-abstract class BaseActivity<basePresenter : BasePresenter<BaseView>> : BaseView, AppCompatActivity() {
+abstract class BaseFragment<basePresenter : BasePresenter<BaseView>>: BaseView, Fragment() {
 
     protected lateinit var presenter: basePresenter
 
@@ -19,6 +16,7 @@ abstract class BaseActivity<basePresenter : BasePresenter<BaseView>> : BaseView,
     protected abstract fun instantiatePresenter(): basePresenter
 
     override fun getContext(): Context {
-        return this
+        return activity!!
     }
+
 }

@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-                android:name="test.billeasy.com.billeasytest.features.home.HomeActivity">
+                android:name="test.billeasy.com.billeasytest.features.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

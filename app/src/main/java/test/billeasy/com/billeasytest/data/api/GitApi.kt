@@ -18,15 +18,15 @@ interface GitApi{
      * @param repoName
      * @return Observable<List<GitRepository>>
      */
-    @GET("/repos/{repoName}/contributors")
-    fun getContributors(repoName : String): Observable<List<GitRepository>>
+    @GET("repos/{userName}/{repoName}/contributors")
+    fun getContributors(userName: String,repoName : String): Observable<List<GitRepository>>
 
     /**
      * Get the list of the repositories for selected user
      * @param userName
      * @return Observable<List<GitRepository>>
      */
-    @GET("/repositories/users/{userName}/repos")
+    @GET("/users/{userName}/repos")
     fun getUserRepositories(userName : String): Observable<List<GitRepository>>
 
 }

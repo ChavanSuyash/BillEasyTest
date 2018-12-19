@@ -1,4 +1,4 @@
-package test.billeasy.com.billeasytest.features.home
+package test.billeasy.com.billeasytest.features.gitrepositorylist
 
 import android.content.Context
 import android.databinding.DataBindingUtil
@@ -32,7 +32,7 @@ class GitRepositoryListAdapter(private val context: Context) : RecyclerView.Adap
     }
 
     /**
-     * Updates the list of posts of the adapter
+     * Updates the list of git repository of the adapter
      * @param gitRepositoryList the new list of git repository of the adapter
      */
     fun updatePosts(gitRepositoryList: List<GitRepository>) {
@@ -42,7 +42,7 @@ class GitRepositoryListAdapter(private val context: Context) : RecyclerView.Adap
 
     /**
      * The ViewHolder of the adapter
-     * @property binding the DataBinging object for Git Repository item
+     * @property binding the DataBinging object for git repository item
      */
     class GitRepositoryViewHolder(private val binding: ItemRepositoryListBinding) : RecyclerView.ViewHolder(binding.root) {
 
