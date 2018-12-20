@@ -4,4 +4,7 @@
     <string name="avatar">avatar</string>
 
     <string name="git_list_title">Git Repository List</string>
+    <string name="contributor_details_title">Contributor Details</string>
+
+    <string name="description">Description</string>
 </resources>

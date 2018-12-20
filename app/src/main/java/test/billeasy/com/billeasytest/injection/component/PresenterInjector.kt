@@ -3,6 +3,7 @@ package test.billeasy.com.billeasytest.injection.component
 import dagger.BindsInstance
 import dagger.Component
 import test.billeasy.com.billeasytest.base.BaseView
+import test.billeasy.com.billeasytest.features.contributors.ContributorsPresenter
 import test.billeasy.com.billeasytest.features.gitrepositorylist.GitRepositoryListPresenter
 import test.billeasy.com.billeasytest.injection.module.ContextModule
 import test.billeasy.com.billeasytest.injection.module.NetworkModule
@@ -13,6 +14,7 @@ import javax.inject.Singleton
 interface PresenterInjector{
 
     fun inject(gitRepositoryListPresenter: GitRepositoryListPresenter)
+    fun inject(contributorsPresenter: ContributorsPresenter)
 
     @Component.Builder
     @Suppress("unused")

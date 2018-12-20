@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import test.billeasy.com.billeasytest.R
 import test.billeasy.com.billeasytest.data.model.GitRepository
 import test.billeasy.com.billeasytest.databinding.ItemRepositoryListBinding
@@ -28,7 +30,14 @@ class GitRepositoryListAdapter(private val context: Context) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: GitRepositoryListAdapter.GitRepositoryViewHolder, position: Int) {
-        holder.bind(gitRepositoryList[position])
+        holder.bind(createOnClickListener(gitRepositoryList[position]),gitRepositoryList[position])
+    }
+
+    private fun createOnClickListener(gitRepository : GitRepository): View.OnClickListener {
+        return View.OnClickListener {
+            val direction = GitRepositoryListFragmentDirections.ActionGitListToContributorsFragment(gitRepository )
+            it.findNavController().navigate(direction)
+        }
     }
 
     /**
@@ -46,8 +55,9 @@ class GitRepositoryListAdapter(private val context: Context) : RecyclerView.Adap
      */
     class GitRepositoryViewHolder(private val binding: ItemRepositoryListBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: GitRepository) {
+        fun bind(listener: View.OnClickListener, item: GitRepository) {
             binding.apply {
+                clickListener = listener
                 gitRepository = item
                 executePendingBindings()
             }

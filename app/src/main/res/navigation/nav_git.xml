@@ -8,6 +8,24 @@
             android:id="@+id/git_repository_list_fragment"
             android:name="test.billeasy.com.billeasytest.features.gitrepositorylist.GitRepositoryListFragment"
             android:label="@string/git_list_title"
-            tools:layout="@layout/fragment_git_repository_list"/>
+            tools:layout="@layout/fragment_git_repository_list">
+
+            <action
+                android:id="@+id/action_git_list_to_contributors_fragment"
+                app:destination="@id/contributors_fragment"/>
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/contributors_fragment"
+            android:name="test.billeasy.com.billeasytest.features.contributors.ContributorsFragment"
+            android:label="@string/contributor_details_title"
+            tools:layout="@layout/fragment_contributors">
+
+        <argument
+                android:name="gitRepository"
+                app:argType="test.billeasy.com.billeasytest.data.model.GitRepository" />
+
+    </fragment>
 
 </navigation>
