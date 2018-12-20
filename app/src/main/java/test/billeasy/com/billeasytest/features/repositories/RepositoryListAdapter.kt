@@ -1,4 +1,4 @@
-package test.billeasy.com.billeasytest.features.gitrepositorylist
+package test.billeasy.com.billeasytest.features.repositories
 
 import android.content.Context
 import androidx.databinding.DataBindingUtil
@@ -11,7 +11,7 @@ import test.billeasy.com.billeasytest.R
 import test.billeasy.com.billeasytest.data.model.GitRepository
 import test.billeasy.com.billeasytest.databinding.ItemRepositoryListBinding
 
-class GitRepositoryListAdapter(private val context: Context) : RecyclerView.Adapter<GitRepositoryListAdapter.GitRepositoryViewHolder>() {
+class RepositoryListAdapter(private val context: Context) : RecyclerView.Adapter<RepositoryListAdapter.GitRepositoryViewHolder>() {
 
     /**
      * The list of git repository of the adapter
@@ -19,7 +19,7 @@ class GitRepositoryListAdapter(private val context: Context) : RecyclerView.Adap
 
     private var gitRepositoryList: List<GitRepository> = listOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitRepositoryListAdapter.GitRepositoryViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryListAdapter.GitRepositoryViewHolder {
         val layoutInflater = LayoutInflater.from(context)
         val binding: ItemRepositoryListBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_repository_list, parent, false)
         return GitRepositoryViewHolder(binding)
@@ -29,13 +29,13 @@ class GitRepositoryListAdapter(private val context: Context) : RecyclerView.Adap
         return gitRepositoryList.size
     }
 
-    override fun onBindViewHolder(holder: GitRepositoryListAdapter.GitRepositoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RepositoryListAdapter.GitRepositoryViewHolder, position: Int) {
         holder.bind(createOnClickListener(gitRepositoryList[position]),gitRepositoryList[position])
     }
 
     private fun createOnClickListener(gitRepository : GitRepository): View.OnClickListener {
         return View.OnClickListener {
-            val direction = GitRepositoryListFragmentDirections.ActionGitListToContributorsFragment(gitRepository )
+            val direction = RepositoryListFragmentDirections.ActionGitListToContributorsFragment(gitRepository )
             it.findNavController().navigate(direction)
         }
     }

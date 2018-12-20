@@ -1,9 +1,9 @@
-package test.billeasy.com.billeasytest.features.gitrepositorylist
+package test.billeasy.com.billeasytest.features.repositories
 
 import test.billeasy.com.billeasytest.base.BaseView
 import test.billeasy.com.billeasytest.data.model.GitRepository
 
-interface GitRepositoryListView : BaseView {
+interface RepositoryListView : BaseView {
 
     fun showLoading()
 

@@ -6,7 +6,7 @@
 
     <fragment
             android:id="@+id/git_repository_list_fragment"
-            android:name="test.billeasy.com.billeasytest.features.gitrepositorylist.GitRepositoryListFragment"
+            android:name="test.billeasy.com.billeasytest.features.repositories.RepositoryListFragment"
             android:label="@string/git_list_title"
             tools:layout="@layout/fragment_git_repository_list">
 

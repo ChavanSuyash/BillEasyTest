@@ -1,4 +1,4 @@
-package test.billeasy.com.billeasytest.features.gitrepositorylist
+package test.billeasy.com.billeasytest.features.repositories
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -7,7 +7,7 @@ import test.billeasy.com.billeasytest.base.BasePresenter
 import test.billeasy.com.billeasytest.data.api.GitApi
 import javax.inject.Inject
 
-class GitRepositoryListPresenter(gitRepositoryListView: GitRepositoryListView) : BasePresenter<GitRepositoryListView>(gitRepositoryListView) {
+class RepositoryListPresenter(repositoryListView: RepositoryListView) : BasePresenter<RepositoryListView>(repositoryListView) {
 
     @Inject
     lateinit var gitApi: GitApi

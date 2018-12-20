@@ -1,7 +1,7 @@
 package test.billeasy.com.billeasytest.base
 
 import test.billeasy.com.billeasytest.features.contributors.ContributorsPresenter
-import test.billeasy.com.billeasytest.features.gitrepositorylist.GitRepositoryListPresenter
+import test.billeasy.com.billeasytest.features.repositories.RepositoryListPresenter
 import test.billeasy.com.billeasytest.injection.component.DaggerPresenterInjector
 import test.billeasy.com.billeasytest.injection.component.PresenterInjector
 import test.billeasy.com.billeasytest.injection.module.ContextModule
@@ -33,7 +33,7 @@ abstract class BasePresenter<out V: BaseView>(protected val view: V) {
 
     private fun inject() {
         when(this){
-            is GitRepositoryListPresenter -> injector.inject(this)
+            is RepositoryListPresenter -> injector.inject(this)
             is ContributorsPresenter -> injector.inject(this)
         }
     }

@@ -1,4 +1,4 @@
-package test.billeasy.com.billeasytest.features.gitrepositorylist
+package test.billeasy.com.billeasytest.features.repositories
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,21 +10,21 @@ import test.billeasy.com.billeasytest.base.BaseFragment
 import test.billeasy.com.billeasytest.data.model.GitRepository
 import test.billeasy.com.billeasytest.databinding.FragmentGitRepositoryListBinding
 
-class GitRepositoryListFragment : BaseFragment<GitRepositoryListPresenter>(), GitRepositoryListView {
+class RepositoryListFragment : BaseFragment<RepositoryListPresenter>(), RepositoryListView {
 
     private lateinit var binding : FragmentGitRepositoryListBinding
-    private lateinit var gitRepositoryListAdapter :GitRepositoryListAdapter
+    private lateinit var repositoryListAdapter :RepositoryListAdapter
 
-    override fun instantiatePresenter(): GitRepositoryListPresenter {
-        return GitRepositoryListPresenter(this)
+    override fun instantiatePresenter(): RepositoryListPresenter {
+        return RepositoryListPresenter(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = FragmentGitRepositoryListBinding.inflate(inflater, container, false)
 
-        gitRepositoryListAdapter = GitRepositoryListAdapter(binding.root.context)
-        binding.gitRepositoryList.adapter = gitRepositoryListAdapter
+        repositoryListAdapter = RepositoryListAdapter(binding.root.context)
+        binding.gitRepositoryList.adapter = repositoryListAdapter
         binding.gitRepositoryList.layoutManager = LinearLayoutManager(binding.root.context)
 
         return binding.root
@@ -49,7 +49,7 @@ class GitRepositoryListFragment : BaseFragment<GitRepositoryListPresenter>(), Gi
     }
 
     override fun showGitRepositories(gitRepositoryList: List<GitRepository>) {
-        gitRepositoryListAdapter.updatePosts(gitRepositoryList)
+        repositoryListAdapter.updatePosts(gitRepositoryList)
     }
 
     override fun showError(error: String) {
