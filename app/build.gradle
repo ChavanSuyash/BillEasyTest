@@ -60,5 +60,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha01'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation "android.arch.navigation:navigation-fragment-ktx:$rootProject.navigation_version"
+    implementation "android.arch.navigation:navigation-ui-ktx:$rootProject.navigation_version"
 
 }

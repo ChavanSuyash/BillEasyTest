@@ -2,4 +2,6 @@
     <string name="app_name">BillEasyTest</string>
 
     <string name="avatar">avatar</string>
+
+    <string name="git_list_title">Git Repository List</string>
 </resources>
