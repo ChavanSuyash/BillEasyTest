@@ -7,7 +7,7 @@
                 type="Integer"/>
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -22,7 +22,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:visibility="@{safeUnbox(progressVisibility)}"/>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/gitRepositoryList"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -32,6 +32,6 @@
                 app:layout_constraintTop_toTopOf="parent"
         />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

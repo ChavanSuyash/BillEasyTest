@@ -2,7 +2,7 @@ package test.billeasy.com.billeasytest.base
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 
 abstract class BaseFragment<basePresenter : BasePresenter<BaseView>>: BaseView, Fragment() {
 
