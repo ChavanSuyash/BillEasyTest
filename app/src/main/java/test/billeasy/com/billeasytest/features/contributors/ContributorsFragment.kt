@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import test.billeasy.com.billeasytest.base.BaseFragment
 import test.billeasy.com.billeasytest.data.model.Owner
 import test.billeasy.com.billeasytest.databinding.FragmentContributorsBinding
@@ -28,6 +29,8 @@ class ContributorsFragment : BaseFragment<ContributorsPresenter>() , Contributor
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        Log.e(CONTRIBUTORS_FRAGMENT_TAG,"onCreateView")
+
         binding = FragmentContributorsBinding.inflate(inflater, container, false)
 
         binding.gitRepository = gitRepository
@@ -40,12 +43,19 @@ class ContributorsFragment : BaseFragment<ContributorsPresenter>() , Contributor
 
     override fun onStart() {
         super.onStart()
+        Log.e(CONTRIBUTORS_FRAGMENT_TAG,"onStart")
         presenter.loadContributors(gitRepository.owner.login, gitRepository.name)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onStop() {
+        super.onStop()
+        Log.e(CONTRIBUTORS_FRAGMENT_TAG,"onStop")
         presenter.onViewDestroyed()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.e(CONTRIBUTORS_FRAGMENT_TAG,"onDestroyView")
     }
 
     override fun showLoading() {
@@ -61,6 +71,7 @@ class ContributorsFragment : BaseFragment<ContributorsPresenter>() , Contributor
     }
 
     override fun showError(error: String) {
+        Snackbar.make(binding.root, error, Snackbar.LENGTH_LONG).show()
         Log.e(CONTRIBUTORS_FRAGMENT_TAG, "Error")
     }
 

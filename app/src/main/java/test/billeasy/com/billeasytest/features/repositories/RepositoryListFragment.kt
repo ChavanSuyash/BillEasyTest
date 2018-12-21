@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.snackbar.Snackbar
 import test.billeasy.com.billeasytest.base.BaseFragment
 import test.billeasy.com.billeasytest.data.model.GitRepository
 import test.billeasy.com.billeasytest.databinding.FragmentGitRepositoryListBinding
@@ -53,6 +54,7 @@ class RepositoryListFragment : BaseFragment<RepositoryListPresenter>(), Reposito
     }
 
     override fun showError(error: String) {
+        Snackbar.make(binding.root, error, Snackbar.LENGTH_LONG).show()
         Log.e("Error", error)
     }
 
