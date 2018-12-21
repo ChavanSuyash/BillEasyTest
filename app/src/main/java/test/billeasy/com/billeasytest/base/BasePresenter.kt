@@ -1,6 +1,8 @@
 package test.billeasy.com.billeasytest.base
 
 import test.billeasy.com.billeasytest.features.contributors.ContributorsPresenter
+import test.billeasy.com.billeasytest.features.contributors.repositories.ContributorRepositoryListFragment
+import test.billeasy.com.billeasytest.features.contributors.repositories.ContributorRepositoryListPresenter
 import test.billeasy.com.billeasytest.features.repositories.RepositoryListPresenter
 import test.billeasy.com.billeasytest.injection.component.DaggerPresenterInjector
 import test.billeasy.com.billeasytest.injection.component.PresenterInjector
@@ -35,6 +37,7 @@ abstract class BasePresenter<out V: BaseView>(protected val view: V) {
         when(this){
             is RepositoryListPresenter -> injector.inject(this)
             is ContributorsPresenter -> injector.inject(this)
+            is ContributorRepositoryListPresenter -> injector.inject(this)
         }
     }
 }

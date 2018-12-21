@@ -2,12 +2,16 @@ package test.billeasy.com.billeasytest.features.contributors
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import test.billeasy.com.billeasytest.R
+import test.billeasy.com.billeasytest.data.model.GitRepository
 import test.billeasy.com.billeasytest.data.model.Owner
 import test.billeasy.com.billeasytest.databinding.ItemContributorsListBinding
+import test.billeasy.com.billeasytest.features.repositories.RepositoryListFragmentDirections
 
 
 class  ContributorsListAdapter(val context: Context) : RecyclerView.Adapter<ContributorsListAdapter.ContributorsViewHolder>(){
@@ -25,7 +29,14 @@ class  ContributorsListAdapter(val context: Context) : RecyclerView.Adapter<Cont
     }
 
     override fun onBindViewHolder(holder: ContributorsViewHolder, position: Int) {
-        holder.bind(contributorsList[position])
+        holder.bind(createOnClickListener(contributorsList[position]),contributorsList[position])
+    }
+
+    private fun createOnClickListener(owner : Owner): View.OnClickListener {
+        return View.OnClickListener {
+            val direction = ContributorsFragmentDirections.ActionContributorsToContributorRepositoryListFragment(owner.avatar_url,owner.login)
+            it.findNavController().navigate(direction)
+        }
     }
 
     /**
@@ -39,9 +50,11 @@ class  ContributorsListAdapter(val context: Context) : RecyclerView.Adapter<Cont
 
     class ContributorsViewHolder(private val binding: ItemContributorsListBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item : Owner) {
+        fun bind(listener: View.OnClickListener,item : Owner) {
             binding.apply {
+                clickListener = listener
                 owner = item
+                executePendingBindings()
             }
         }
     }

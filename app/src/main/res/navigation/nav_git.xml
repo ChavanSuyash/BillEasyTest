@@ -26,6 +26,26 @@
                 android:name="gitRepository"
                 app:argType="test.billeasy.com.billeasytest.data.model.GitRepository" />
 
+        <action
+                android:id="@+id/action_contributors_to_contributor_repository_list_fragment"
+                app:destination="@id/contributor_git_repository_fragment"/>
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/contributor_git_repository_fragment"
+            android:name="test.billeasy.com.billeasytest.features.contributors.repositories.ContributorRepositoryListFragment"
+            android:label="@string/contributor_details_title"
+            tools:layout="@layout/fragment_contributor_repository_list">
+
+        <argument
+                android:name="imageUrl"
+                app:argType="string" />
+
+        <argument
+                android:name="name"
+                app:argType="string" />
+
     </fragment>
 
 </navigation>

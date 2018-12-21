@@ -29,7 +29,7 @@ interface GitApi{
      * @param userName
      * @return Observable<List<GitRepository>>
      */
-    @GET("/users/{userName}/repos")
-    fun getUserRepositories(userName : String): Observable<List<GitRepository>>
+    @GET("/users/{user_name}/repos")
+    fun getUserRepositories(@Path(value = "user_name", encoded = true)userName : String): Observable<List<GitRepository>>
 
 }
