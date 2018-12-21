@@ -27,7 +27,7 @@ class RepositoryListPresenter(repositoryListView: RepositoryListView) : BasePres
             .subscribeOn(Schedulers.io())
             .doOnTerminate { view.hideLoading() }
             .subscribe(
-                { repositoryList -> view.showGitRepositories(repositoryList) },
+                { repositoryList -> view.showGitRepositories(repositoryList.subList(0,20)) },
                 { view.showError("Error") }
             )
     }
