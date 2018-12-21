@@ -7,8 +7,8 @@ import test.billeasy.com.billeasytest.base.BasePresenter
 import test.billeasy.com.billeasytest.data.api.GitApi
 import javax.inject.Inject
 
-class ContributorRepositoryListPresenter(contributorRepositoryListView: ContributorRepositoryListView)
-    : BasePresenter<ContributorRepositoryListView>(contributorRepositoryListView) , ContributorRepositoriesPresenterContract {
+class ContributorRepositoriesPresenter(contributorRepositoriesView: ContributorRepositoriesView)
+    : BasePresenter<ContributorRepositoriesView>(contributorRepositoriesView) , ContributorRepositoriesPresenterContract {
 
 
     @Inject

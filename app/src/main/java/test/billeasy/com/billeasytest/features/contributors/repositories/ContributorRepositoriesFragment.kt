@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import test.billeasy.com.billeasytest.base.BaseFragment
 import test.billeasy.com.billeasytest.data.model.GitRepository
 import test.billeasy.com.billeasytest.databinding.FragmentContributorRepositoryListBinding
-import test.billeasy.com.billeasytest.features.contributors.repositories.ContributorRepositoryListFragmentArgs.fromBundle
+import test.billeasy.com.billeasytest.features.contributors.repositories.ContributorRepositoriesFragmentArgs.fromBundle
 
 const val Contributor_REPOSITORY_LIST_FRAGMENT_TAG = "CRepositoryListFragment"
-class ContributorRepositoryListFragment : BaseFragment<ContributorRepositoryListPresenter>() ,
-        ContributorRepositoryListView {
+class ContributorRepositoriesFragment : BaseFragment<ContributorRepositoriesPresenter>() ,
+        ContributorRepositoriesView {
 
     private lateinit var binding : FragmentContributorRepositoryListBinding
-    private lateinit var contributorRepositoryListAdapter: ContributorRepositoryListAdapter
+    private lateinit var contributorRepositoriesAdapter: ContributorRepositoriesAdapter
 
     val imageUrl by lazy {
         fromBundle(arguments!!).imageUrl
@@ -26,8 +26,8 @@ class ContributorRepositoryListFragment : BaseFragment<ContributorRepositoryList
         fromBundle(arguments!!).name
     }
 
-    override fun instantiatePresenter(): ContributorRepositoryListPresenter {
-        return ContributorRepositoryListPresenter(this);
+    override fun instantiatePresenter(): ContributorRepositoriesPresenter {
+        return ContributorRepositoriesPresenter(this);
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -36,8 +36,8 @@ class ContributorRepositoryListFragment : BaseFragment<ContributorRepositoryList
         binding.imageUrl = imageUrl
         binding.name = name
 
-        contributorRepositoryListAdapter = ContributorRepositoryListAdapter(binding.root.context)
-        binding.gitRepositoryList.adapter = contributorRepositoryListAdapter
+        contributorRepositoriesAdapter = ContributorRepositoriesAdapter(binding.root.context)
+        binding.gitRepositoryList.adapter = contributorRepositoriesAdapter
         binding.gitRepositoryList.layoutManager = LinearLayoutManager(binding.root.context)
 
         return binding.root
@@ -62,7 +62,7 @@ class ContributorRepositoryListFragment : BaseFragment<ContributorRepositoryList
     }
 
     override fun showRepositories(gitRepositoryList: List<GitRepository>) {
-        contributorRepositoryListAdapter.updateRepositories(gitRepositoryList)
+        contributorRepositoriesAdapter.updateRepositories(gitRepositoryList)
     }
 
     override fun showError(error: String) {

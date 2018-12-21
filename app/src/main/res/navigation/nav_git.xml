@@ -42,7 +42,7 @@
 
     <fragment
             android:id="@+id/contributor_git_repository_fragment"
-            android:name="test.billeasy.com.billeasytest.features.contributors.repositories.ContributorRepositoryListFragment"
+            android:name="test.billeasy.com.billeasytest.features.contributors.repositories.ContributorRepositoriesFragment"
             android:label="@string/contributor_details_title"
             tools:layout="@layout/fragment_contributor_repository_list">
 

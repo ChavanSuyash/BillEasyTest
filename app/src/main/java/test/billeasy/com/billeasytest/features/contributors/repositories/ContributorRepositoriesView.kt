@@ -3,7 +3,7 @@ package test.billeasy.com.billeasytest.features.contributors.repositories
 import test.billeasy.com.billeasytest.base.BaseView
 import test.billeasy.com.billeasytest.data.model.GitRepository
 
-interface ContributorRepositoryListView : BaseView {
+interface ContributorRepositoriesView : BaseView {
 
     fun showLoading()
 

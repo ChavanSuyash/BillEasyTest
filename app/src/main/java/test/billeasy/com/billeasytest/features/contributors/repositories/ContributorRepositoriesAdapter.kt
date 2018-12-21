@@ -9,15 +9,15 @@ import test.billeasy.com.billeasytest.R
 import test.billeasy.com.billeasytest.data.model.GitRepository
 import test.billeasy.com.billeasytest.databinding.ItemRepositoryListBinding
 
-class ContributorRepositoryListAdapter(val context: Context)
-    : RecyclerView.Adapter<ContributorRepositoryListAdapter.RepositoryViewHolder>() {
+class ContributorRepositoriesAdapter(val context: Context)
+    : RecyclerView.Adapter<ContributorRepositoriesAdapter.RepositoryViewHolder>() {
 
     var gitRepositoryList : List<GitRepository> = listOf()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ContributorRepositoryListAdapter.RepositoryViewHolder {
+    ): ContributorRepositoriesAdapter.RepositoryViewHolder {
         val layoutInflater = LayoutInflater.from(context)
         val binding : ItemRepositoryListBinding = DataBindingUtil.inflate(layoutInflater, R.layout.item_repository_list, parent, false)
         return RepositoryViewHolder(binding)
@@ -27,7 +27,7 @@ class ContributorRepositoryListAdapter(val context: Context)
         return gitRepositoryList.size
     }
 
-    override fun onBindViewHolder(holder: ContributorRepositoryListAdapter.RepositoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ContributorRepositoriesAdapter.RepositoryViewHolder, position: Int) {
         holder.bind(gitRepositoryList[position])
     }
 

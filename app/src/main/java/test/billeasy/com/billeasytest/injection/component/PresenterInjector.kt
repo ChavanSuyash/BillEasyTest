@@ -4,7 +4,7 @@ import dagger.BindsInstance
 import dagger.Component
 import test.billeasy.com.billeasytest.base.BaseView
 import test.billeasy.com.billeasytest.features.contributors.ContributorsPresenter
-import test.billeasy.com.billeasytest.features.contributors.repositories.ContributorRepositoryListPresenter
+import test.billeasy.com.billeasytest.features.contributors.repositories.ContributorRepositoriesPresenter
 import test.billeasy.com.billeasytest.features.repositories.RepositoryListPresenter
 import test.billeasy.com.billeasytest.injection.module.ContextModule
 import test.billeasy.com.billeasytest.injection.module.NetworkModule
@@ -16,7 +16,7 @@ interface PresenterInjector{
 
     fun inject(repositoryListPresenter: RepositoryListPresenter)
     fun inject(contributorsPresenter: ContributorsPresenter)
-    fun inject(contributorRepositoryListPresenter: ContributorRepositoryListPresenter)
+    fun inject(contributorRepositoriesPresenter: ContributorRepositoriesPresenter)
 
     @Component.Builder
     @Suppress("unused")
